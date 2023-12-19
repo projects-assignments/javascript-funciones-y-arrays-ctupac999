@@ -1,31 +1,76 @@
 /* Encuentra el máximo */
 
 export function maxOfTwoNumbers(numero1, numero2) {
-    if (numero1 >= numero2) { return (numero1) }
-    else { return (numero2) }
+    return numero1 > numero2 ? numero1 : numero2;
 }
 export function findLongestWord(array) {
-    array.forEach(val => {
-        let palabra = "";
-        if (val.length() > palabra.length()) { palabra = val; }
-    });
-    return (palabra)
+    if (array == 0) return undefined;
+
+    let word = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i].length > word.length) {
+            word = array[i];
+        }
+    }
+
+    return word;
 }
-
-
 export function sumArray(array) {
-    let sumaVariables = 0
-    array.forEach(ind, val, array => {
-        sumaVariables.parseInt += val.parseInt
-    });
-    return sumaVariables
+    const initialValue = 0;
+    const sumWithInitial = array.reduce(
+        (accumulator, currentValue) =>
+            accumulator + currentValue, initialValue,
+    );
+    return sumWithInitial;
+}
+export function averageNumbers(array) {
+    if (array == 0) return undefined;
+    return (sumArray(array) / array.length)
+}
+export function averageWordLength(array) {
+    if (array.length === 0) {
+        return undefined;
+    }
+
+    const totalLength = array.reduce(
+        (accumulator, currentValue) =>
+            accumulator + currentValue.length,
+        0
+    );
+
+    return totalLength / array.length;
+}
+export function uniquifyArray(array) {
+    if (array == 0)
+        return undefined;
+    let unicArray = [...new Set(array)];
+    return unicArray;
 
 }
-export function averageNumbers(array) { }
-export function averageWordLength() { }
-export function uniquifyArray() { }
-export function doesWordExist(array, palabra) { }
-export function howManyTimes() { }
+export function doesWordExist(array, word) {
+    if (array === 0)
+        return undefined;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+            return true;
+        }
+    }
+    return false;
+}
+export function howManyTimes(array, word) {
+    if (array == 0) return undefined;
+
+    let count = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === word) {
+            count++;
+        }
+    }
+
+    return count;
+}
 export function greatestProduct() { }
 
 
